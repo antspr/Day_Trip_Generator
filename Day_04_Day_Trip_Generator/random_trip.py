@@ -37,10 +37,12 @@ trip_package_mixed_string = (f'You will be visiting: {trip_package_list[0]}, whe
 approved_package = [trip_package_list[0],trip_package_list[1],trip_package_list[2],trip_package_list[3]]#would like to call "return" variable from function?
 approval = input(f'We have put together a trip, {trip_package_mixed_string}, Would you like to go on this trip? Y/N?')
 if approval.upper() == 'Y':
-    approved == False
+    approved == True
     print(f'The trip where {trip_package_mixed_string} selection process is complete. Congratulations!')
-elif approval.upper() == 'N':
-      approved == False
+else:
+    approval.upper() == 'N'
+    approved == False
+    while approved== False:
       new_selection = int(input("""What would you like to change? 
       Choose "1" to change the destination, 
       "2" for a different place to eat 
@@ -53,16 +55,18 @@ elif approval.upper() == 'N':
       elif new_selection == 3:
           approved_package[2]= randomization_tool(vehicles)
       elif new_selection == 4:
-          approved_package[3]= randomization_tool(activities)  
-      while approved== True: 
-          confirmed = input(f'''Your updated trip now has you traveling to {approved_package[0]},
+          approved_package[3]= randomization_tool(activities)
+    else:
+      approved == True  
+      confirmed = input(f'''Your trip now has you traveling to {approved_package[0]},
           eating at {approved_package[1]}, 
           traveling by {approved_package[2]},
           and hanging out {approved_package[3]} Please enter "Y" to confirm, "N" to ammend.''')
-          if confirmed.lower() == 'y':
+      if confirmed.lower() == 'y':
             approved = True
             print("Your trip has been confirmed")
-          elif confirmed.lower() == 'n':
+      elif confirmed.lower() == 'n':
             approved == False
-          print(new_selection) 
+      print(new_selection) 
+
 
